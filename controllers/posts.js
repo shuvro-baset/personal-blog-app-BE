@@ -5,6 +5,7 @@ import PostMessage from '../models/postMessage.js';
 
 const router = express.Router();
 
+// getPosts controller
 export const getPosts = async (req, res) => { 
     try {
         const postMessages = await PostMessage.find();
@@ -15,6 +16,7 @@ export const getPosts = async (req, res) => {
     }
 }
 
+// single getPost controller
 export const getPost = async (req, res) => { 
     const { id } = req.params;
 
@@ -27,6 +29,7 @@ export const getPost = async (req, res) => {
     }
 }
 
+// create Posts controller
 export const createPost = async (req, res) => {
     const { title, message, selectedFile, creator, tags } = req.body;
 
@@ -41,6 +44,7 @@ export const createPost = async (req, res) => {
     }
 }
 
+// update Posts controller
 export const updatePost = async (req, res) => {
     const { id } = req.params;
     const { title, message, creator, selectedFile, tags } = req.body;
@@ -54,6 +58,7 @@ export const updatePost = async (req, res) => {
     res.json(updatedPost);
 }
 
+// delete Posts controller
 export const deletePost = async (req, res) => {
     const { id } = req.params;
 
@@ -64,6 +69,7 @@ export const deletePost = async (req, res) => {
     res.json({ message: "Post deleted successfully." });
 }
 
+// post like
 export const likePost = async (req, res) => {
     const { id } = req.params;
 
