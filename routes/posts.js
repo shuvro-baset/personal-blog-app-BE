@@ -4,6 +4,7 @@ import { getPosts, getPost, createPost, updatePost, likePost, deletePost } from 
 
 const router = express.Router();
 
+// all API's
 router.get('/', getPosts);
 router.post('/', createPost);
 router.get('/:id', getPost);
