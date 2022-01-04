@@ -15,11 +15,16 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
+app.get('/', (res, req) => {
+  res.send("hello coders! ");
+})
 // port
-const PORT = process.env.PORT|| 5000;
+const PORT = process.env.PORT || 5000;
+
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oh18i.mongodb.net/crudDb?retryWrites=true&w=majority`;
 
 // database connection
-mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
   .catch((error) => console.log(`${error} did not connect`));
 
