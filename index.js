@@ -15,7 +15,7 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
-app.get('/', (res, req) => {
+app.get('/', (req, res) => {
   res.send("hello coders! ");
 })
 // port
